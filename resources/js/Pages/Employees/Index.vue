@@ -13,13 +13,13 @@ import SelectInput from '@/Components/SelectInput.vue';
 import WarningButton from '@/Components/WarningButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import Modal from '@/Components/Modal.vue';
+import MyCarousel from '@/Components/MyCarousel.vue';
+
 import VueTailwindPagination from '@ocrv/vue-tailwind-pagination';
 
 import { Head, useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
 
-
-// Declare of variables or constants
 
 const nameInput = ref(null);
 const modal = ref(false);
@@ -78,33 +78,6 @@ const save = () => {
             onSuccess: () => {ok('Empleado creado')}
         });
     } else {
-        /*
-        costoCalculado = maximoCosto - form.costo;
-        newCostoCalculado = form.costo;
-        while (newCostoCalculado != 0) {
-            if (newCostoCalculado > 50000) {
-                msj += " 1 Billete de 50.000";
-                newCostoCalculado = newCostoCalculado - 50000;
-            } if (newCostoCalculado < 50000 && newCostoCalculado >= 20000) {
-                msj += " 1 Billete de 20.000";
-                newCostoCalculado = newCostoCalculado - 20000;
-            } if (newCostoCalculado < 20000 && newCostoCalculado >= 10000) {
-                msj += " 1 Billete de 10.000";
-                newCostoCalculado = newCostoCalculado - 10000;
-            } if (newCostoCalculado < 10000 && newCostoCalculado >= 5000) {
-                msj += " 1 Billete de 5.000";
-                newCostoCalculado = newCostoCalculado - 5000;
-            }if (newCostoCalculado < 5000 && newCostoCalculado >= 2000) {
-                msj += " 1 Billete de 2.000";
-                newCostoCalculado = newCostoCalculado - 2000;
-            }if (newCostoCalculado < 2000 && newCostoCalculado >= 1000) {
-                msj += " 1 Billete de 1.000";
-                newCostoCalculado = newCostoCalculado - 1000;
-            }
-        }
-        console.log(msj);
-
-        */
        form.costo = 5000;
 
        form.put(route('employees.update', id.value), {
@@ -147,6 +120,10 @@ const deleteEmployee = (id, name) => {
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Empleados</h2>
         </template>
+
+        <div>
+            <MyCarousel />
+        </div>
 
         <div class="py-12">
             <div class="bg-white grid v-screen place-items-center">
@@ -257,5 +234,8 @@ const deleteEmployee = (id, name) => {
                 </SecondaryButton>
             </div>
         </Modal>
+
+
+
     </AuthenticatedLayout>
 </template>

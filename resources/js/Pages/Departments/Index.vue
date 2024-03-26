@@ -1,6 +1,8 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import DangerButton from '@/Components/DangerButton.vue';
+import MyCarousel from '@/Components/MyCarousel.vue';
+
 import Swal from 'sweetalert2';
 
 import { Head, Link, useForm } from '@inertiajs/vue3';
@@ -39,6 +41,10 @@ const deleteDepartment = (id, name) => {
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Departamentos</h2>
         </template>
+
+        <div>
+            <MyCarousel />
+        </div>
 
         <div class="py-12">
             <div class="bg-white grid v-screen place-items-center">
