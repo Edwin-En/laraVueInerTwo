@@ -10,6 +10,10 @@ const form = useForm({
     name: '',
 });
 
+const props = defineProps({
+    cities: {type:Object}
+});
+
 
 </script>
 
@@ -33,6 +37,14 @@ const form = useForm({
                         <TextInput id="name" v-model="form.name" autofocus required
                         type="text"
                         class="mt-1 block w-full"></TextInput>
+                        <!-- Aqui añadir select de ciudades -->
+                        <div>
+                            <label for="city" class="block text-sm font-medium text-gray-700">Ciudad</label>
+                            <select id="city" v-model="form.city_id" class="mt-1 block w-full">
+                                <option value="">Selecciona una ciudad</option>
+                                <option v-for="city in cities" :key="city.id" :value="city.id">{{ city.name }}</option>
+                            </select>
+                        </div>
                         <InputError :message="form.errors.name" class="mt-2"></InputError>
                         <PrimaryButton :disabled="form.processing">
                             <i class="fa-solid fa-save"></i> Guardar

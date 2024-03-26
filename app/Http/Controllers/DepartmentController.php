@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\City;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -17,7 +18,9 @@ class DepartmentController extends Controller
 
     public function create()
     {
-        return Inertia::render('Departments/Create');
+        $cities = City::all();
+
+        return Inertia::render('Departments/Create', ['cities' => $cities]);
     }
 
     public function store(Request $request)
