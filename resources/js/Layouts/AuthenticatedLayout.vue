@@ -58,6 +58,12 @@ const showingNavigationDropdown = ref(false);
                                     Administración de contraseña
                                 </NavLink>
                             </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('sales.index')" :active="route().current('sales.index')">
+                                    Administración Comercializadora Santander
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
