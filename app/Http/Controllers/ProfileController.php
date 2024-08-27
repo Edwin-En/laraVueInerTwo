@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\PasswordParameter;
 
 class ProfileController extends Controller
 {
@@ -18,9 +19,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
+        $parametersPassword = PasswordParameter::latest()->first();
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
+            'parametersPassword' => $parametersPassword,
         ]);
     }
 
@@ -37,7 +40,8 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit');
+        $text = "text test";
+        return Redirect::route('profile.edit', ["text" => $text]);
     }
 
     /**
