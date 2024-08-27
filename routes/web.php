@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PasswordParameterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('departments', DepartmentController::class);
     Route::resource('employees', EmployeeController::class);
     Route::get('graphic', [EmployeeController::class, 'EmployeeByDepartment'])->name('graphic');
+    Route::get('managePassword', [PasswordParameterController::class, 'index'])->name('managePassword');
+    Route::post('/password-parameters', [PasswordParameterController::class, 'store'])->name('passwordParameters.store');
 
 });
 

@@ -12,6 +12,9 @@ defineProps({
     status: {
         type: String,
     },
+    parametersPassword: {
+        type: Object,
+    }
 });
 </script>
 
@@ -34,7 +37,7 @@ defineProps({
                 </div>
 
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    <UpdatePasswordForm class="max-w-xl" />
+                    <UpdatePasswordForm :parameters-password="parametersPassword" class="max-w-xl" />
                 </div>
 
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">

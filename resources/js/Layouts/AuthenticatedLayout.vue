@@ -52,6 +52,12 @@ const showingNavigationDropdown = ref(false);
                                     Grafica
                                 </NavLink>
                             </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('managePassword')" :active="route().current('managePassword')">
+                                    Administración de contraseña
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
